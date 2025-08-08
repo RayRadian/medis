@@ -66,12 +66,20 @@ class MasterItemsController extends Controller
             $kode = $data_item->kode;
         }
 
+        $foto_file = $request->file('foto');
+        $foto_ekstensi = $foto_file->extension();
+        $foto_nama = date('ymdhis') . "." . $foto_ekstensi;
+        $foto_file->move(public_path('foto'), $foto_nama);
+
+
         $data_item->nama = $request->nama;
         $data_item->harga_beli = $request->harga_beli;
         $data_item->laba = $request->laba;
         $data_item->kode = $kode;
         $data_item->supplier = $request->supplier;
         $data_item->jenis = $request->jenis;
+        $data_item->foto = $request->foto;
+
         $data_item->save();
 
         return redirect('master-items');

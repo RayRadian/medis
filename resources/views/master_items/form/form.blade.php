@@ -48,6 +48,11 @@
         </select>
     </div>
 
+    <div class="mb-3">
+    <label for="foto" class="form-label">Foto</label>
+    <input type="file" class="form-control" name="foto" id="foto"> 
+    </div>
+
     <button class="btn btn-primary mt-3">Submit</button>
 
 </form>
