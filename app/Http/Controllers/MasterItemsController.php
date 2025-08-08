@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class MasterItemsController extends Controller
 {
+    //halaman tampil semua data
     public function index()
     {
         return view('master_items.index.index');
@@ -33,7 +34,7 @@ class MasterItemsController extends Controller
             'data' => $data_search
         ]);
     }
-
+    // halaman buat atau edit data
     public function formView($method, $id = 0)
     {
         if ($method == 'new') {
@@ -45,7 +46,7 @@ class MasterItemsController extends Controller
         $data['method'] = $method;
         return view('master_items.form.index', $data);
     }
-
+    //halaman melihat data dari tombol view
     public function singleView($kode)
     {
         $data['data'] = MasterItem::where('kode', $kode)->first();
